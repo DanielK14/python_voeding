@@ -1,9 +1,48 @@
 import pandas as pd 
 
-path = "food composition//NutrientDataset.csv"
-df = pd.read_csv(path, delimiter = ',',index_col = "ID", error_bad_lines = False, dtype = str, quotechar = '"')
+path = "food composition//foodDataset.csv"
+df = pd.read_csv(path, sep = ',')
 
-print(df.head(10))
+barcode = [1265, 6543, 8752, 6545, 3671, 4102, 6114] * 1059
+
+new_df = df.copy()
+
+new_df["Barcodes"] = barcode
+
+new_df.to_csv('food composition//foodDatasetBarcode.csv')
+
+
+
+
+
+#def FoodValues(dataframe, productnaam):
+
+ # output = []
+  #for i, product in dataframe.iterrows():
+   # if product["Category"] == productnaam:
+    #  output.append(product)
+     # print(output)
+
+#print(FoodValues(df, "BUTTER"))
+
+#print(df.columns)
+#avgattack = sum(df["Sp. Atk"]) / len(df["Sp. Atk"])
+
+
+#def attack(dataframe, name):
+
+ # pkm = []
+  #for i, pokemon in dataframe.iterrows():
+   # if pokemon["Name"] == name:
+    #  pkm.append(pokemon["Sp. Atk"])
+    
+     # print(pkm)
+
+#print(attack(df, "Pikachu"))
+
+#for item in df.iterrows():
+ #    if item[0] >= avgattack:
+  #        print(item)
 
 #print(df["COUNTRY"])
 #counter = 0
