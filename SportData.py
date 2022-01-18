@@ -16,11 +16,11 @@ def burned_calories(kg, sport, time_in_hours, dataframe):
     
     for i, activity in dataframe.iterrows():
         
-        if activity["Activity, Exercise or Sport (1 hour)"] == sport:
+        if sport in activity["Activity, Exercise or Sport (1 hour)"]:
             cal_per_kg += activity["Calories per kg"]
             return("You burned: ", ((cal_per_kg * kg) * time_in_hours), "calories!")
     
-print(burned_calories(80, "Unicycling", 0.5, df))
+print(burned_calories(80, "Unicyc", 0.5, df))
 
 
 
