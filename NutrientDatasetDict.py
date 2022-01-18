@@ -1,5 +1,6 @@
 import pandas
 import re
+import json
 
 path = "food composition//NutrientDataset.csv"
 de_csv = pandas.read_csv(path, sep=";", encoding="ISO-8859-1")
@@ -32,6 +33,9 @@ for i, row in de_csv.iterrows():
             product_dict[str(val)] = str(product[idx])
         product_dict_copy = product_dict.copy()
         products.append(product_dict_copy)
+       # with open("food composition//NutrientDatasetDict.json", "w") as fp:
+          #  json.dump(product_dict, fp)
+        
 
 # This shows the first 10 product dictionaries
 # show_amt = 10
@@ -41,10 +45,10 @@ for i, row in de_csv.iterrows():
 #         break
 
 # Example code for queries (see final line for possible product keys)
-query = "cheese"
-for idx, p in enumerate(products):
-    if query in p['ShortDescrip'].lower():
-        print(f"Found cheese in {p['ID']}, {p['Descrip']}")
+# query = "cheese"
+# for idx, p in enumerate(products):
+#     if query in p['ShortDescrip'].lower():
+#         print(f"Found cheese in {p['ID']}, {p['Descrip']}")
 
 # Available product information -> print(values)
 # 'ID', 'FoodGroup', 'ShortDescrip', 'Descrip', 'CommonName', 'MfgName', 'ScientificName', 'Energy_kcal', 'Protein_g', 'Fat_g', 'Carb_g', 'Sugar_g', 'Fiber_g', 'VitA_mcg', 'VitB6_mg', 'VitB12_mcg', 'VitC_mg', 'VitE_mg', 'Folate_mcg', 'Niacin_mg', 'Riboflavin_mg', 'Thiamin_mg', 'Calcium_mg', 'Copper_mcg', 'Iron_mg', 'Magnesium_mg', 'Manganese_mg', 'Phosphorus_mg', 'Selenium_mcg', 'Zinc_mg', 'VitA_USRDA', 'VitB6_USRDA', 'VitB12_USRDA', 'VitC_USRDA', 'VitE_USRDA', 'Folate_USRDA', 'Niacin_USRDA', 'Riboflavin_USRDA', 'Thiamin_USRDA', 'Calcium_USRDA', 'Copper_USRDA', 'Magnesium_USRDA', 'Phosphorus_USRDA', 'Selenium_USRDA', 'Zinc_USRDA'

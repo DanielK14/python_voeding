@@ -1,15 +1,9 @@
 import pandas as pd 
 
-path = "food composition//foodDataset.csv"
+path = "food composition//NutrientDatasetDict.csv"
 df = pd.read_csv(path, sep = ',')
 
-barcode = [1265, 6543, 8752, 6545, 3671, 4102, 6114] * 1059
-
-new_df = df.copy()
-
-new_df["Barcodes"] = barcode
-
-new_df.to_csv('food composition//foodDatasetBarcode.csv')
+print(df.head(20))
 
 
 
