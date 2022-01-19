@@ -2,12 +2,11 @@ import pandas as pd
 
 df = pd.read_csv('food composition//SportDatasetkg.csv', delimiter = ',')
 
+# Hieronder is een copy van de dataframe gemaakt en de kolommen die in lb stonden vervangen voor kg.
 # new_df = df.copy()
 
 # new_df.rename(columns={'130 lb': 'Burned Calories (59 kg)', '155 lb': 'Burned Calories (70 kg)', '180 lb': 'Burned Calories (82 kg)', '205 lb': 'Burned Calories (93 kg)'}, inplace=True)
-# oefening met gedeeltelijke tekst in kolom opzoeken
-# b = "Uni"
-# a = new_df["Activity, Exercise or Sport (1 hour)"].str.contains(b)
+
 
 def burned_calories(kg, sport, time_in_hours, dataframe):
 
