@@ -1,13 +1,38 @@
 import pandas as pd 
 
-path = "food composition//NutrientDatasetDict.csv"
+path = "food composition//foodDatasetBarcode.csv"
 df = pd.read_csv(path, sep = ',')
 
-print(df.head(20))
+tstdf = df.copy()
+
+testdf = tstdf.head(20)
+
+# Deze methode zal een product opzoeken en alle waardes die daarbij horen printen.
+
+def prod_lookup(prod_name, dataframe = testdf):
+
+     prod_name = prod_name.upper()
+
+     for i, product in dataframe.iterrows():
+          if prod_name in product["Description"]:
+               print(product)
+
+# Voorbeeld van opzoeken van een product
+
+# prod_lookup("butter,with")
 
 
 
+s = "butter salt"
+s = s.upper()
+s = s.split()
 
+print(s)
+
+a = "BUTTER,WITH SALT"
+
+if s[0] in a and s[1] in a:
+     print("yes")
 
 #def FoodValues(dataframe, productnaam):
 
