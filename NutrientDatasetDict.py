@@ -33,9 +33,9 @@ for i, row in de_csv.iterrows():
             product_dict[str(val)] = str(product[idx])
         product_dict_copy = product_dict.copy()
         products.append(product_dict_copy)
-       # with open("food composition//NutrientDatasetDict.json", "w") as fp:
-          #  json.dump(product_dict, fp)
-        
+      
+with open("food composition//NutrientDatasetDict.json", "w") as fp:
+    json.dump(products, fp, indent = 4)      
 
 # This shows the first 10 product dictionaries
 # show_amt = 10
