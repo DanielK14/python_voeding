@@ -1,16 +1,18 @@
 import json
 
-f = open("food composition//NutrientDatasetDict.json")
+f = open("food composition\\NutrientDatasetDict.json")
 data = json.load(f)
 
-def search_kcal(productnaam, file = data):
+print(data.head(20))
 
-    prod_input = productnaam.upper()
-    for i in range(len(file)):
-        if prod_input in file[i]["ShortDescrip"]:
+# def search_kcal(productnaam, file = data):
 
-            print(file[i]["Energy_kcal"])
-        else:
-            pass
+#     prod_input = productnaam.upper()
+#     for i in range(len(file)):
+#         if prod_input in file[i]["ShortDescrip"]:
 
-search_kcal('butter')
+#             print(file[i]["Energy_kcal"])
+#         else:
+#             pass
+
+# search_kcal('butter')
