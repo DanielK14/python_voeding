@@ -2,14 +2,14 @@ import pandas
 import re
 import json
 
-path = "food composition//NutrientDataset.csv"
+path = "food composition\\NutrientDataset.csv"
 de_csv = pandas.read_csv(path, sep=";", encoding="ISO-8859-1")
 
 # Getting object values (id, foodgroup, descrip etc.)
 values = []
 for i, row in de_csv.iterrows():
-    values = row.keys()[0].split(',')
-    break
+        values = row.keys()[0].split(',')
+        break
 
 products = []
 for i, row in de_csv.iterrows():
@@ -30,16 +30,15 @@ for i, row in de_csv.iterrows():
         # turn product information into key_value pairs
         product_dict = {}
         for idx, val in enumerate(values):
+            if val == "":
+                val.replace("", "null")
             product_dict[str(val)] = str(product[idx])
         product_dict_copy = product_dict.copy()
         products.append(product_dict_copy)
-
 for d in products:
     for key in d:
         if d[key] == '':
             d[key] = 'Null'
-
-
 
 with open("food composition//NutrientDatasetDict.json", "w") as fp:
     json.dump(products, fp, indent = 4)      
