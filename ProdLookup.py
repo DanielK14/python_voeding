@@ -12,27 +12,20 @@ testdf = tstdf.head(20)
 def prod_lookup(prod_name, dataframe = testdf):
 
      prod_name = prod_name.upper()
+     prod_name = prod_name.split()
 
      for i, product in dataframe.iterrows():
-          if prod_name in product["Description"]:
-               print(product)
-
+          # if prod_name[0] in product["Description"]:
+          #      return product
+          if prod_name[0] in product["Description"] and prod_name[1] in product["Description"]:
+               return product
+          if prod_name[0] in product["Description"] and prod_name[1] in product["Description"] and prod_name[2] in product["Description"]:
+               return product
+          if prod_name[0] in product["Description"] and prod_name[1] in product["Description"] and prod_name[2] in product["Description"] and prod_name[3] in product["Description"]:
+               return product
 # Voorbeeld van opzoeken van een product
 
-# prod_lookup("butter,with")
-
-
-
-s = "butter salt"
-s = s.upper()
-s = s.split()
-
-print(s)
-
-a = "BUTTER,WITH SALT"
-
-if s[0] in a and s[1] in a:
-     print("yes")
+print(prod_lookup("butter"))
 
 #def FoodValues(dataframe, productnaam):
 
